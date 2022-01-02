@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+<title></title>
+
+<link href="build.css?1606168430904" rel="stylesheet">
+
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="viewport" content="user-scalable=no,width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="google" value="notranslate">
+
+<meta name="twitter:image" content="/assets/art/twitter.png?1606168430904">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="">
+
+<meta property="og:image" content="/assets/art/facebook.png?1606168430904"/>
+<meta property="og:url" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="">
+<meta property="og:description" content="">
+
+<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+<link rel="shortcut icon" href="/assets/art/favico.png?1606168430904" type="image/x-icon">
+<link rel="canonical" href="">
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','','auto');ga('send','pageview');</script>
+
+
+</head>
+<body>
+
+<div id="container">
+<div id="caption">
+    <div class="line">oscillator.type = <span id="type-value">'sawtooth'</span>;</div>
+    <div class="line">oscillator.frequency.value = <span id="freq-value">440</span>;</div>
+</div></div>
+
+<script type="text/javascript">
+function checkCompatability() {
+    function get_browser() {
+        var ua=navigator.userAgent,tem,M=ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || []; 
+        if(/trident/i.test(M[1])){
+            tem=/\brv[ :]+(\d+)/g.exec(ua) || []; 
+            return {name:'IE',version:(tem[1]||'')};
+            }   
+        if(M[1]==='Chrome'){
+            tem=ua.match(/\bOPR|Edge\/(\d+)/)
+            if(tem!=null)   {return {name:'Opera', version:tem[1]};}
+            }   
+        M=M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, '-?'];
+        if((tem=ua.match(/version\/(\d+)/i))!=null) {M.splice(1,1,tem[1]);}
+        return {
+          name: M[0],
+          version: M[1]
+        };
+     }
+    
+    var browser = get_browser(); // browser.name = 'Chrome'
+                               // browser.version = '40'
+
+    var version = parseFloat(browser.version)
+    if (browser.name === 'Safari' && version < 12.2) {
+        return false;
+    }
+    return true;
+    
+}
+var compatible = checkCompatability();
+
+if (compatible) { 
+    console.log('comp')
+    var v = document.createElement( 'script' );
+    v.type = 'text/javascript';
+    v.src = 'vendor.js?1606168430904';
+    document.body.appendChild(v);
+
+    setup();
+
+} else {
+    var scriptTag = document.createElement( 'script' );
+    scriptTag.setAttribute('src', 'legacy.js');
+    document.body.appendChild(scriptTag);
+
+}
+var setupInterval
+
+function setup() {
+    clearInterval(setupInterval)
+    try {
+        af
+        var l = document.createElement( 'script' );
+        l.type = 'text/javascript';
+        l.src = 'lib.js?1606168430904';
+        document.body.appendChild(l);
+        var src = af.url.e || 'main';
+        var s = document.createElement( 'script' );
+        src += '.js?1606168430904'
+        s.type = 'text/javascript';
+        s.src = src;
+        document.body.appendChild(s);
+    } catch(error) {
+        setupInterval = setInterval(setup, 500);
+    }
+}
+
+
+</script>
+
+
+</body>
+</html>
